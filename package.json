@@ -1,0 +1,27 @@
+{
+  "name": "review_scrapper",
+  "version": "1.0.0",
+  "description": "Application to Dynamically Scraps reviews from from Marketplace Review URL",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MasterKaif/review_scrapper.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MasterKaif/review_scrapper/issues"
+  },
+  "homepage": "https://github.com/MasterKaif/review_scrapper#readme",
+  "dependencies": {
+    "express": "^4.21.1",
+    "openai": "^4.67.3",
+    "playwright": "^1.48.0",
+    "winston": "^3.15.0"
+  }
+}
