@@ -12,6 +12,7 @@ app.get('/api/reviews', async (req, res) => {
     if (!url) {
         return res.status(400).json({ error: 'URL parameter is required' });
     }
+    console.log(url)
 
     try {
         const reviews = await extractReviews(url);
