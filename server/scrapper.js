@@ -6,7 +6,7 @@ const axios = require("axios")
 
 async function getReviewSelector(htmlContent) {
     const openai = new OpenAIApi(new Configuration({
-        apiKey: "sk-kL1Dhx4dWNkuUllpkbCHPm0YHZUbtZd20oGJeMZLCMT3BlbkFJrtMv2l8jK7GWMV1sIWowfoOgNHG84JEVpVKUWX6EYA",  
+        apiKey: "YOUR_API_KEY",  
     }));
     // Step 2: Send the HTML to OpenAI API to find the review selector
     const response = await openai.createChatCompletion({
