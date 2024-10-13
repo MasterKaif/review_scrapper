@@ -1,9 +1,9 @@
 const express = require('express');
 const { extractReviews } = require('./scrapper');
-// require('dotenv').config();
+require('dotenv').config();
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 // Endpoint to extract reviews from a product page
 app.get('/api/reviews', async (req, res) => {
