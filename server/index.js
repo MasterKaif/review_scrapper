@@ -19,7 +19,7 @@ app.get('/api/reviews', async (req, res) => {
         res.json(reviews);
     } catch (error) {
         console.error('Error extracting reviews:', error);
-        res.status(500).json({ error: 'Failed to extract reviews' });
+        res.status(500).json({ error: 'Failed to extract reviews'});
     }
 });
 

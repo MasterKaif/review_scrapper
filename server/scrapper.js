@@ -1,13 +1,14 @@
 const puppeteer = require('puppeteer');
 const { Configuration, OpenAIApi } = require('openai');
-const { amazon_review_class, flipkart_review_class, shopify_review_class } = require('./cosntants');
+const { amazon_review_class, flipkart_review_class, shopify_review_class, OPENAI_API_KEY, OPENAI_MODEL } = require('./cosntants');
 const axios = require("axios")
 
 
+
 async function getReviewSelector(htmlContent) {
-    const openai = new OpenAIApi(new Configuration({
-        apiKey: "sk-kL1Dhx4dWNkuUllpkbCHPm0YHZUbtZd20oGJeMZLCMT3BlbkFJrtMv2l8jK7GWMV1sIWowfoOgNHG84JEVpVKUWX6EYA",  
-    }));
+    const openai = new OpenAIApi({
+        apiKey: OPENAI_API_KEY,  
+    });
     // Step 2: Send the HTML to OpenAI API to find the review selector
     const response = await openai.createChatCompletion({
         model: 'gpt-3.5-turbo',  // or another model you wish to use
@@ -89,8 +90,11 @@ async function askLLMTocreateJSON(reviews) {
                 3. reviewBody
                 4. rating 
         `
+        const openai = new OpenAIApi({
+            apiKey: OPENAI_API_KEY,  
+        });
         const data = {
-            "model": "mistral",
+            "model": OPENAI_MODEL,
             "messages": [
                 {
                     "role": "user",
@@ -99,8 +103,9 @@ async function askLLMTocreateJSON(reviews) {
             ],
             "stream": false
         };
-        const apiUrl = 'http://localhost:11434/api/chat';
-        const response = await axios.post(apiUrl, data);
+        // const apiUrl = 'http://localhost:11434/api/chat';
+        // const response = await axios.post(apiUrl, data);
+        const response = openai.chat.completion.create(data)
         console.log(response)
         const result = JSON.parse(response.data?.message?.content.trim());
         return result
