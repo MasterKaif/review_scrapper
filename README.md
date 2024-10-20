@@ -60,6 +60,7 @@ params: `url` (url of the product page)
 and usability across any website
 - Add Pagination Handling: 
 Implement logic to navigate through all pages of reviews to ensure complete data extraction.
+- To Add Agents and Tools to Optimise Structure and Quring LLM.
 
 ### Another vesion
 - If you wish to use openai gpt, rather than using ollama, checkout to branch `openai`
